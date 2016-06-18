@@ -212,12 +212,10 @@ provider =
   # once user starts editing files.
   robotProjectPaths: undefined
   getSuggestions: ({editor, bufferPosition, scopeDescriptor, prefix}) ->
-    replacementPrefix = getPrefix(editor, bufferPosition)
+    prefix = getPrefix(editor, bufferPosition)
     new Promise (resolve) ->
       path = editor?.buffer.file?.path
-      suggestions = autocomplete.getSuggestions(replacementPrefix, path, provider.settings)
-      for suggestion in suggestions
-        suggestion.replacementPrefix = replacementPrefix
+      suggestions = autocomplete.getSuggestions(prefix, path, provider.settings)
       resolve(suggestions)
   unload: ->
   load: ->
