@@ -216,6 +216,7 @@ provider =
     new Promise (resolve) ->
       path = editor?.buffer.file?.path
       suggestions = autocomplete.getSuggestions(prefix, path, provider.settings)
+      debugger
       resolve(suggestions)
   unload: ->
   load: ->
